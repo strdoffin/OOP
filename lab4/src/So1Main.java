@@ -7,12 +7,13 @@
  *
  * @author doffi
  */
-public class test {
+
+public class So1Main {
     public static void main(String[] args) {
-        int cnt = 0;
-        for (int i = -4; i < -7 ; i++){
-            cnt++;
-        }
-        System.out.println(cnt);
+        Student s = new Student();
+        s.mScore = 80;
+        s.fScore = 80;
+        s.showGrade();
     }
 }
+

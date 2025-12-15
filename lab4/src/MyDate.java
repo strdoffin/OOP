@@ -7,12 +7,11 @@
  *
  * @author doffi
  */
-public class test {
-    public static void main(String[] args) {
-        int cnt = 0;
-        for (int i = -4; i < -7 ; i++){
-            cnt++;
-        }
-        System.out.println(cnt);
+public class MyDate {
+    public int day;
+    public int month;
+    public int year;
+    public void showDate(){
+        System.out.println(day+"/"+month+"/"+year+".");
     }
 }

@@ -7,12 +7,8 @@
  *
  * @author doffi
  */
-public class test {
-    public static void main(String[] args) {
-        int cnt = 0;
-        for (int i = -4; i < -7 ; i++){
-            cnt++;
-        }
-        System.out.println(cnt);
-    }
+public class Customer {
+    public String name;
+    public MyDate DOB;
+    public Account acct;
 }
