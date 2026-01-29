@@ -8,31 +8,31 @@
  * @author yossawatimjai
  */
 public class Customer {
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private CheckingAccount acct;
     public Customer(){
         this("","",null);
     }
-    public Customer(String firstname, String lastname){
-        this(firstname,lastname,null);
+    public Customer(String firstName, String lastName){
+        this(firstName,lastName,null);
     }
-    public Customer(String firstname, String lastname, CheckingAccount acct){
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Customer(String firstName, String lastName, CheckingAccount acct){
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.acct = acct;
     }
-    public void setFirstName(String firstname){
-        this.firstname = firstname;
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
     }
     public String getFirstName(){
-        return this.firstname;
+        return this.firstName;
     }
-    public void setLastName(String lastname){
-        this.lastname = lastname;
+    public void setLastName(String lastName){
+        this.lastName = lastName;
     }
     public String getLastName(){
-        return this.lastname;
+        return this.lastName;
     }
     public void setAcct(CheckingAccount acct){
         this.acct = acct;
@@ -43,11 +43,11 @@ public class Customer {
     @Override
     public String toString(){
         if (this.getAcct() == null){
-            return (this.firstname+" "+this.lastname+" doesn't have account.");
+            return (this.firstName+" "+this.lastName+" doesn’t have account.");
         }
-        return ("The "+ this.firstname + " account has "+this.getAcct().getBalance() +" baht and "+ this.getAcct().getCredit() + " credits.");
+        return ("The "+ this.firstName + " account has "+this.getAcct().getBalance() +" baht and "+ this.getAcct().getCredit() + " credits.");
     }
     public boolean equals(Customer c){
-        return (this.firstname.equals(c.firstname) & this.lastname.equals(c.lastname));
+        return (this.firstName.equals(c.firstName) & this.lastName.equals(c.lastName));
     }
 }

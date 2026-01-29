@@ -35,14 +35,14 @@ public class Plane extends Vehicle implements Flyable{
     public void startEngine(){
         if (this.getFuel() >= 20){
             this.setFuel(this.getFuel() - 20);
-            System.out.println("Plane's Engine starts");
+            System.out.println("Plane’s Engine starts");
         }else{
             System.out.println("Fuel is not enough.");
         }
     }
     @Override
     public void stopEngine(){
-        System.out.println("Plane's Engine stops");
+        System.out.println("Plane’s Engine stops");
     }
     @Override
     public void honk(){
@@ -61,7 +61,7 @@ public class Plane extends Vehicle implements Flyable{
     public void takeOff(){
         if (this.getFuel() >= 10){
             this.setFuel(this.getFuel() - 10);
-            System.out.println("Plane Already Take Off");
+            System.out.println("Plane Already to Take Off");
         }else{
             System.out.println("Fuel is nearly empty.");
         }
