@@ -7,6 +7,7 @@
  *
  * @author yossawatimjai
  */
+import java.awt.Color;
 import javax.swing.*;
 
 public class MDIFromGUI {
@@ -29,7 +30,7 @@ public class MDIFromGUI {
         desktopPane.add(frame1);
         desktopPane.add(frame2);
         desktopPane.add(frame3);
-        
+        desktopPane.setBackground(Color.black);
         
         JMenuBar mb = new JMenuBar();
         JMenu m1 = new JMenu("File");
