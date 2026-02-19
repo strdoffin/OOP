@@ -7,23 +7,24 @@ import javax.swing.*;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 /**
  *
  * @author yossawatimjai
  */
-public class CalculatorSample implements ActionListener{
+public class CalculatorSample implements ActionListener {
+
     private JFrame f;
     private JPanel m;
     private JPanel numpad;
-    private JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bplus,bminus,bmultiply,bdivide,bc,beq;
+    private JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, bplus, bminus, bmultiply, bdivide, bc, beq;
     private JTextField box;
     private double value = 0;
     private String op;
-    public CalculatorSample(){
+
+    public CalculatorSample() {
         f = new JFrame("My Calculator");
         m = new JPanel(new BorderLayout());
-        numpad = new JPanel(new GridLayout(4,4));
+        numpad = new JPanel(new GridLayout(4, 4));
         box = new JTextField();
         b1 = new JButton("1");
         b2 = new JButton("2");
@@ -41,7 +42,7 @@ public class CalculatorSample implements ActionListener{
         bdivide = new JButton("/");
         bc = new JButton("c");
         beq = new JButton("=");
-        
+
         b1.addActionListener(this);
         b2.addActionListener(this);
         b3.addActionListener(this);
@@ -75,41 +76,64 @@ public class CalculatorSample implements ActionListener{
         numpad.add(beq);
         numpad.add(bdivide);
 
-        m.add(box,BorderLayout.NORTH);
-        m.add(numpad,BorderLayout.CENTER);
+        m.add(box, BorderLayout.NORTH);
+        m.add(numpad, BorderLayout.CENTER);
         f.add(m);
-        f.setSize(400,400);
+        f.setSize(400, 400);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().charAt(0) <= '9' & e.getActionCommand().charAt(0) >= '0'){
+        if (e.getActionCommand().charAt(0) <= '9' & e.getActionCommand().charAt(0) >= '0') {
             box.setText(box.getText() + e.getActionCommand().charAt(0));
-        } else if (e.getSource() == bc){
+        } else if (e.getSource() == bc) {
             box.setText("");
-            
-        } else if(e.getSource() == beq){
-            double secondvalue = Double.parseDouble(box.getText());
-            double result = 0;
+            value = 0;
+            op = null;
 
+        } else if (e.getSource() == beq) {
+            double secondvalue = Double.parseDouble(box.getText());
             switch (op) {
-                case "+" -> result = value + secondvalue;
-                case "-" -> result = value - secondvalue;
-                case "X" -> result = value * secondvalue;
-                case "/" -> result = value / secondvalue;
+                case "+" ->
+                    value += secondvalue;
+                case "-" ->
+                    value -= secondvalue;
+                case "X" ->
+                    value *= secondvalue;
+                case "/" ->
+                    value /= secondvalue;
                 default -> {
+                    return;
                 }
             }
-            box.setText(String.valueOf(result));
+            box.setText(String.valueOf(value));
             op = null;
         } else {
-            if (!box.getText().isEmpty()){
-                value = Double.parseDouble(box.getText());
+            if (!box.getText().isEmpty()) {
+
+                if (op != null) {
+                    double secondvalue = Double.parseDouble(box.getText());
+                    switch (op) {
+                        case "+" ->
+                            value += secondvalue;
+                        case "-" ->
+                            value -= secondvalue;
+                        case "X" ->
+                            value *= secondvalue;
+                        case "/" ->
+                            value /= secondvalue;
+                        default -> {
+                        }
+                    }
+                }else{
+                    value = Double.parseDouble(box.getText());
+                }
                 op = e.getActionCommand();
                 box.setText("");
             }
         }
     }
-    
+
 }
